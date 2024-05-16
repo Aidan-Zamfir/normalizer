@@ -41,3 +41,7 @@ func (d *Data) addData(c int) {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
