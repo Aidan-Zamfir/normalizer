@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/Aidan-Zamfir/normalizer/csvData"
+	"github.com/Aidan-Zamfir/normalizer/data"
 )
 
 func main() {
@@ -14,8 +15,10 @@ func main() {
     fmt.Scan(&filepath)
 
 	x := csvData.GetCSVData(filepath)
-	fmt.Println(x)
+	fmt.Println(x, "<-- columns")
 
+	data.Caller()
+	
 	
 }
 

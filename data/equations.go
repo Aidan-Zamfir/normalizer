@@ -1,27 +1,47 @@
 package data
 
-var temp_array = []int{10, 32, 44, 12, 92, 40, 19, 32, 1, 9, 6, 20, 17}
+import "fmt"
 
+var temp_array = []int{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
 
-func Minimum(arr []int) int {
+func Caller() {
+	normalize(temp_array)
+}
+
+func minimum(arr []int) float32 {
 	min := arr[0]
 	for _, i := range arr {
 		if (i < min) {
 			min = i
 		}
 	}
-	return min
+	return float32(min)
 }
 
-func Maximum(arr []int) int{
+func maximum(arr []int) float32{
 	max := arr[0]
 	for _, i := range arr {
 		if (i > max) {
 			max = i
 		}
 	}
-	return max
+	return float32(max)
 }
+
+func normalize(arr []int) {
+	var min float32 = minimum(arr)
+	var max float32= maximum(arr)
+	n := []float32{}
+
+	for i := 0; i < len(arr); i++ { 
+		ni := (float32(arr[i])-min)/(max-min)
+        n = append(n, ni)
+	}
+
+	fmt.Println(n, "<-- this is nrm data")
+
+}
+
 
 //normalize:
 //for i in row[x]:
