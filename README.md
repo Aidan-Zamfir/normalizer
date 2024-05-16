@@ -1,6 +1,6 @@
 ### TO DO:
 
-- [ ] Normalize data
+- [ ] normalize data
 - [ ] z-score
 - [ ] decimal scaling
 - [ ] user methods

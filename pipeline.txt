@@ -1,0 +1,10 @@
+access via cli
+enter filepath
+enter method
+return file of normalized data (csv?) that can be used for ML
+
+CLI:
+
+NORMALIZE:
+
+FILE MANAGMENT:
