@@ -7,9 +7,15 @@ import (
 	"os"
 )
 
-var columns int //stores columns (to be used when normalizing)
+type Data struct {
+	columns int
+	data int //temp un-used
+}
 
-func GetCSVData(path string) int{ //temp return int (cause returning columns)
+// var columns int //stores columns (to be used when normalizing)
+
+func GetCSVData(path string) int { //temp return int (cause returning columns)
+	var d Data
 
 	f, err := os.Open("testdata.csv")
 	if err != nil {
@@ -25,10 +31,15 @@ func GetCSVData(path string) int{ //temp return int (cause returning columns)
 			log.Fatal(err)
 		}
 
-		columns = len(row)
+		d.addData(len(row))
 	}
-		return columns
+	 return d.columns
 }
+
+func (d *Data) addData(c int) {
+	d.columns = c
+}
+
 
 //normalize:
 //for i in row[x]:
