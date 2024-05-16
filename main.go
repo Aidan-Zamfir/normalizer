@@ -1,6 +1,21 @@
 package main
 
+import (
+	"fmt"
+
+	"github.com/Aidan-Zamfir/normalizer/csvData"
+)
+
 func main() {
 
+	var filepath string
 
+	fmt.Print("Enter file path: ") //(testdata.csv)
+    fmt.Scan(&filepath)
+
+	x := csvData.GetCSVData(filepath)
+	fmt.Println(x)
+
+	
 }
+
