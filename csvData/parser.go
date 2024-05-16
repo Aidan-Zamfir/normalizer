@@ -40,8 +40,3 @@ func (d *Data) addData(c int) {
 	d.columns = c
 }
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
