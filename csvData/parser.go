@@ -29,3 +29,14 @@ func GetCSVData(path string) int{ //temp return int (cause returning columns)
 	}
 		return columns
 }
+
+//normalize:
+//for i in row[x]:
+// normD = (i-min(row[x]) / (max(row[x]) - min(row[x]))
+// LIST.append(normD)
+// the func will return float32
+
+//z-score norm:
+// normD = (i - mean) / standard deviation
+
+//

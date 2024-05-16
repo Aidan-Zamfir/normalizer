@@ -1,6 +1,8 @@
 package data
 
+func Normalize() {
 
+}
 
 func Minimum(arr []int) int {
 	min := arr[0]
@@ -21,5 +23,3 @@ func Maximum(arr []int) int{
 	}
 	return max
 }
-
-
