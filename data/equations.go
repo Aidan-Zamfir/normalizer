@@ -1,5 +1,9 @@
 package data
 
+
+
+var temp_arr = []int{10, 20, 31, 32, 19, 43, 71, 18, 2, 98, 93, 29, 61, 5}
+
 func Normalize() {
 
 }
@@ -23,3 +27,14 @@ func Maximum(arr []int) int{
 	}
 	return max
 }
+
+//normalize:
+//for i in row[x]:
+// normD = (i-min(row[x]) / (max(row[x]) - min(row[x]))
+// LIST.append(normD)
+// the func will return float32
+
+//z-score norm:
+// normD = (i - mean) / standard deviation
+
+//
