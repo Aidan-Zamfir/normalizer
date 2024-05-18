@@ -5,7 +5,7 @@ import "fmt"
 var temp_array = []int{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
 
 func Caller() {
-	normalize(temp_array)
+	minmax(temp_array)
 }
 
 func minimum(arr []int) float32 {
@@ -28,10 +28,10 @@ func maximum(arr []int) float32{
 	return float32(max)
 }
 
-func normalize(arr []int) {
+func minmax(arr []int) {
 	var min float32 = minimum(arr)
 	var max float32= maximum(arr)
-	n := []float32{}
+	n := []float32{} //stores minmax normalization data
 
 	for i := 0; i < len(arr); i++ { 
 		ni := (float32(arr[i])-min)/(max-min)
