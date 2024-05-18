@@ -6,5 +6,6 @@ return file of normalized data (csv?) that can be used for ML
 CLI:
 
 NORMALIZE:
+All DATA must be comverted to float64 from the start
 
 FILE MANAGMENT:
