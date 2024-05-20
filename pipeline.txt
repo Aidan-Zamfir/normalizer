@@ -1,11 +1,22 @@
-access via cli
-enter filepath
-enter method
-return file of normalized data (csv?) that can be used for ML
+
 
 CLI:
+-run tool
+-input filepath
+-choose method
+
+CSV:
+-get csv data (+)
+-parse (+)
+-put into struct containg data & numb. columns
+-return Data struct to be manipulated
 
 NORMALIZE:
-All DATA must be comverted to float64 from the start
+-called from main -> input Data struct
+-ittirate over rows (save somwhere)
+-change all to float 64
+-perform chosen method
+-return all rows in format
 
 FILE MANAGMENT:
+

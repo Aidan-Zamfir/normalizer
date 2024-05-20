@@ -1,3 +1,7 @@
+## CLI tool for quick data normalization methods
+
+
+
 ### TO DO:
 
 - [x] normalize data

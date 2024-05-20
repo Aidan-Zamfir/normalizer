@@ -9,34 +9,32 @@ import (
 
 type Data struct {
 	columns int
-	data int //temp un-used
+	data int //temp un-used -> pass int dataframe of converted csv
 }
 
-// var columns int //stores columns (to be used when normalizing)
+func GetCSVData(path string) int { //temp return int (cause currently returning number of columns)
+	var d Data // d is of type struct Data
 
-func GetCSVData(path string) int { //temp return int (cause returning columns)
-	var d Data
-
-	f, err := os.Open("testdata.csv")
+	f, err := os.Open(path) 
 	if err != nil {
 		log.Fatal(err)
 	}
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
 	for { //try read from reader
 		row, err := reader.Read() //reader returns row and error
-		if err == io.EOF {
+		if err == io.EOF { //if end of file/row, stop reading
 			break
 		}
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		d.addData(len(row))
+		d.addData(len(row)) // access class method, add value to 'columns'
 	}
 	 return d.columns
 }
 
 func (d *Data) addData(c int) {
-	d.columns = c
+	d.columns = c // 'c' is the value passed in (len(row))
 }
 
