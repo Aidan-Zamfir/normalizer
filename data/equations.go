@@ -6,39 +6,40 @@ import (
 )
 
 var temp_array = []int{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
+//need all numbers/rows passe din to be float64
 
 func Caller() {
 	minmax(temp_array)
 	standardise(temp_array)
 }
 
-func minimum(arr []int) float32 {
+func minimum(arr []int) float64 {
 	min := arr[0]
 	for _, i := range arr {
 		if (i < min) {
 			min = i
 		}
 	}
-	return float32(min)
+	return float64(min)
 }
 
-func maximum(arr []int) float32 {
+func maximum(arr []int) float64 {
 	max := arr[0]
 	for _, i := range arr {
 		if (i > max) {
 			max = i
 		}
 	}
-	return float32(max)
+	return float64(max)
 }
 
-func mean(arr []int) float32{
+func mean(arr []int) float64{
 	t := 0
 	for _, i := range arr {
 		t += i
 	}
 	
-	var mean float32 = float32(t)/float32((len(arr)))
+	var mean float64 = float64(t)/float64((len(arr)))
 
 	return mean //return float32(mean) work??
 }
@@ -64,12 +65,12 @@ func standardDeviation(arr []int) float64 {
 }
 
 func minmax(arr []int) { //currently return array
-	var min float32 = minimum(arr)
-	var max float32= maximum(arr)
-	n := []float32{} //stores minmax normalization data -> put in table
+	var min float64 = minimum(arr)
+	var max float64= maximum(arr)
+	n := []float64{} //stores minmax normalization data -> put in table
 
 	for i := 0; i < len(arr); i++ { 
-		ni := (float32(arr[i])-min)/(max-min)
+		ni := (float64(arr[i])-min)/(max-min)
         n = append(n, ni)
 	}
 
@@ -87,10 +88,10 @@ func minmax(arr []int) { //currently return array
 func standardise(arr []int) { //currently return array
 	mean := mean(arr)
 	x := standardDeviation(arr)
-	n := []float32{}
+	n := []float64{}
 
 	for i := 0; i < len(arr); i++ { 
-		s := (float32(arr[i])-mean)/float32(x)
+		s := (float64(arr[i])-mean)/float64(x)
         n = append(n, s)
 	}
 	
