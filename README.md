@@ -1,7 +1,7 @@
 ### TO DO:
 
-- [ ] normalize data
-- [ ] z-score
+- [x] normalize data
+- [x] z-score
 - [ ] decimal scaling
 - [ ] user methods
 - [ ] output format

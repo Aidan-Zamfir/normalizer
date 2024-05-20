@@ -96,3 +96,6 @@ func standardise(arr []int) { //currently return array
 	
 	fmt.Println(n, "<-- this is st data")
 }
+
+
+//build standard scalar function
