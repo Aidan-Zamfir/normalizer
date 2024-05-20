@@ -9,7 +9,7 @@ import (
 
 type Data struct {
 	columns int
-	data int //temp un-used -> pass int dataframe of converted csv
+	data []float64 //temp un-used -> pass int dataframe of converted csv
 }
 
 func GetCSVData(path string) int { //temp return int (cause currently returning number of columns)
@@ -22,7 +22,7 @@ func GetCSVData(path string) int { //temp return int (cause currently returning 
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
 	for { //try read from reader
 		row, err := reader.Read() //reader returns row and error
-		if err == io.EOF { //if end of file/row, stop reading
+		if err == io.EOF { //if end of file/, stop reading
 			break
 		}
 		if err != nil {
