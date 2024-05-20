@@ -43,7 +43,7 @@ func mean(arr []int) float32{
 	return mean //return float32(mean) work??
 }
 
-func standardDeviation(arr []int) float64 {
+func standardDeviation(arr []int) float64 { 
 	var standardDev float64 = 0
 	var powNums float64 = 0
 	var sum int = 0
@@ -63,7 +63,7 @@ func standardDeviation(arr []int) float64 {
 	return standardDev
 }
 
-func minmax(arr []int) {
+func minmax(arr []int) { //currently return array
 	var min float32 = minimum(arr)
 	var max float32= maximum(arr)
 	n := []float32{} //stores minmax normalization data -> put in table
@@ -84,7 +84,7 @@ func minmax(arr []int) {
 // the func will return float32
 
 
-func standardise(arr []int) {
+func standardise(arr []int) { //currently return array
 	mean := mean(arr)
 	x := standardDeviation(arr)
 	n := []float32{}
