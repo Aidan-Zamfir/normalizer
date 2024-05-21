@@ -6,7 +6,7 @@ import (
 )
 
 var temp_array = []int{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
-//need all numbers/rows passe din to be float64
+//need all numbers/rows passed in to be float64
 
 func Caller() {
 	minmax(temp_array)
