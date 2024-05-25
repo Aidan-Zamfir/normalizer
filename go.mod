@@ -8,7 +8,9 @@ require (
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-runewidth v0.0.9 // indirect
 	github.com/mattn/go-tty v0.0.3 // indirect
+	github.com/mauricelam/genny v0.0.0-20190320071652-0800202903e5 // indirect
 	github.com/pkg/term v1.2.0-beta.2 // indirect
 	github.com/rs/zerolog v1.32.0 // indirect
+	github.com/tobgu/qframe v0.4.0 // indirect
 	golang.org/x/sys v0.12.0 // indirect
 )

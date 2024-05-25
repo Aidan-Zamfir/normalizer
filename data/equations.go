@@ -13,8 +13,8 @@ var temp_array = []float64{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
 //itterate over each column in csv
 
 func Caller() {
-	minmax(temp_array)
-	standardise(temp_array)
+	// minmax(temp_array)
+	// standardise(temp_array)
 }
 
 func minimum(arr []float64) float64 {
