@@ -5,49 +5,53 @@ import (
 	"math"
 )
 
-var temp_array = []int{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
+var temp_array = []float64{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
 //need all numbers/rows passed in to be float64
+
+
+//make all csv data float 64
+//itterate over each column in csv
 
 func Caller() {
 	minmax(temp_array)
 	standardise(temp_array)
 }
 
-func minimum(arr []int) float64 {
+func minimum(arr []float64) float64 {
 	min := arr[0]
 	for _, i := range arr {
 		if (i < min) {
 			min = i
 		}
 	}
-	return float64(min)
+	return min
 }
 
-func maximum(arr []int) float64 {
+func maximum(arr []float64) float64 {
 	max := arr[0]
 	for _, i := range arr {
 		if (i > max) {
 			max = i
 		}
 	}
-	return float64(max)
+	return max
 }
 
-func mean(arr []int) float64{
-	t := 0
+func mean(arr []float64) float64{
+	var t float64 = 0
 	for _, i := range arr {
 		t += i
 	}
 	
-	var mean float64 = float64(t)/float64((len(arr)))
+	var mean float64 = t/float64((len(arr)))
 
-	return mean //return float32(mean) work??
+	return mean 
 }
 
-func standardDeviation(arr []int) float64 { 
+func standardDeviation(arr []float64) float64 { 
 	var standardDev float64 = 0
 	var powNums float64 = 0
-	var sum int = 0
+	var sum float64 = 0
 
 	xm := float64(mean(arr))
 
@@ -60,17 +64,17 @@ func standardDeviation(arr []int) float64 {
 		sum += i
 	}
 
-	standardDev = powNums/(float64(sum)-1)
+	standardDev = powNums/(sum-1)
 	return standardDev
 }
 
-func minmax(arr []int) { //currently return array
-	var min float64 = minimum(arr)
-	var max float64= maximum(arr)
+func minmax(arr []float64) { //currently return array
+	min := minimum(arr)
+	max := maximum(arr)
 	n := []float64{} //stores minmax normalization data -> put in table
 
 	for i := 0; i < len(arr); i++ { 
-		ni := (float64(arr[i])-min)/(max-min)
+		ni := (arr[i]-min)/(max-min)
         n = append(n, ni)
 	}
 
@@ -85,13 +89,13 @@ func minmax(arr []int) { //currently return array
 // the func will return float32
 
 
-func standardise(arr []int) { //currently return array
+func standardise(arr []float64) { //currently return array
 	mean := mean(arr)
 	x := standardDeviation(arr)
 	n := []float64{}
 
 	for i := 0; i < len(arr); i++ { 
-		s := (float64(arr[i])-mean)/float64(x)
+		s := (arr[i]-mean)/float64(x)
         n = append(n, s)
 	}
 	

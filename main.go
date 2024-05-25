@@ -20,6 +20,6 @@ func main() {
 	x := csvData.GetCSVData(filepath)
 	fmt.Println(x, "<-- columns")
 
-	data.Caller() //input Data struct
+	data.Caller() //input Data struct 
 	
 }
