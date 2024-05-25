@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/tobgu/qframe"
+	"github.com/Aidan-Zamfir/normalizer/csvData"
 )
 
 
@@ -18,16 +18,17 @@ func main() {
 	fmt.Print("Enter file path: ") //(testdata.csv)
     fmt.Scan(&filepath)
 
-	cfile, err := os.Open(filepath)
+	_, err := os.Open(filepath)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	f := qframe.ReadCSV(cfile)
-	fmt.Println(f)
+	// f := qframe.ReadCSV(cfile)
+	// fmt.Println(f)
 
 
-	// csvData.GetCSVData(filepath)
+	x := csvData.GetCSVData(filepath)
+	fmt.Println(x)
 
 	// data.Caller() //input Data struct 
 	

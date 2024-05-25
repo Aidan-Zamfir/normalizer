@@ -7,13 +7,11 @@ import (
 	"os"
 )
 
-type Data struct {
-	columns int
-	data float64//temp un-used -> pass int dataframe of converted csv
-}
+
+var columns int
+
 
 func GetCSVData(path string) int { //temp return int (cause currently returning number of columns)
-	var d Data // d is of type struct Data
 
 	f, err := os.Open(path) 
 	if err != nil {
@@ -31,18 +29,15 @@ func GetCSVData(path string) int { //temp return int (cause currently returning 
 		if err != nil {
 			log.Fatal(err)
 		}
-
-		d.addCol(len(col)) // access class method, add value to 'columns'
+		//want to point to cloumns
+		p := &columns
+		*p = len(col)
+		
 		
 	}
-	// d.addData(df) issue here -> need to create type of DF so it can go in struct (or just dont use struct)
-	 return d.columns
+	
+	return columns
 }
 
-func (d *Data) addCol(c int) {
-	d.columns = c // 'c' is the value passed in (len(row))
-}
-func (d *Data) addData(df float64) {
-	d.data = df // 'c' is the value passed in (len(row))
-}
+
 
