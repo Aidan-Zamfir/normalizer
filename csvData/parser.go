@@ -5,13 +5,16 @@ import (
 	"io"
 	"log"
 	"os"
+
+	"github.com/tobgu/qframe"
 )
 
 
-var columns int
 
 
-func GetCSVData(path string) int { //temp return int (cause currently returning number of columns)
+
+func GetCSVData(path string) (int, qframe.QFrame){ //temp return int (cause currently returning number of columns)
+	var columns int = 0
 
 	f, err := os.Open(path) 
 	if err != nil {
@@ -19,24 +22,22 @@ func GetCSVData(path string) int { //temp return int (cause currently returning 
 	}
 
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
-	// df := qframe.ReadCSV(f)
-
-	for { //try read from reader
-		col, err := reader.Read() //reader returns row and error
-		if err == io.EOF { //if end of file/, stop reading
+	df := qframe.ReadCSV(f)
+	
+	for { 
+		col, err := reader.Read() 
+		if err == io.EOF { 
 			break
 		}
 		if err != nil {
 			log.Fatal(err)
 		}
-		//want to point to cloumns
-		p := &columns
-		*p = len(col)
-		
-		
+		// p := &columns
+		// *p = len(col)
+		columns = len(col)
 	}
 	
-	return columns
+	return columns, df
 }
 
 

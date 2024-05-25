@@ -5,10 +5,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/Aidan-Zamfir/normalizer/csvData"
+	"github.com/tobgu/qframe"
 )
 
-
+//parser temp not needed - remove later?
 
 func main() {
 
@@ -18,18 +18,22 @@ func main() {
 	fmt.Print("Enter file path: ") //(testdata.csv)
     fmt.Scan(&filepath)
 
-	_, err := os.Open(filepath)
+	f, err := os.Open(filepath)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// f := qframe.ReadCSV(cfile)
-	// fmt.Println(f)
+	df := qframe.ReadCSV(f)
+
+	fmt.Println(df)
 
 
-	x := csvData.GetCSVData(filepath)
-	fmt.Println(x)
-
-	// data.Caller() //input Data struct 
+	// data.Caller(df) //input Data struct 
 	
 }
+
+
+// x, y := csvData.GetCSVData(filepath)
+	// fmt.Println(x)
+	// fmt.Println(" ")
+	// fmt.Println(y)
