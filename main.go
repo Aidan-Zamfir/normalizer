@@ -1,36 +1,32 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"os"
+import "github.com/Aidan-Zamfir/normalizer/cli"
 
-	"github.com/tobgu/qframe"
-)
-
-//parser temp not needed - remove later?
 
 func main() {
+	cli.Execute()
+}
+	
 
-	var filepath string
+	// var filepath string
 
 
-	fmt.Print("Enter file path: ") //(testdata.csv)
-    fmt.Scan(&filepath)
+	// fmt.Print("Enter file path: ") //(testdata.csv)
+    // fmt.Scan(&filepath)
 
-	f, err := os.Open(filepath)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// f, err := os.Open(filepath)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	df := qframe.ReadCSV(f)
+	// df := qframe.ReadCSV(f)
 
-	fmt.Println(df)
+	// fmt.Println(df)
 
 
 	// data.Caller(df) //input Data struct 
 	
-}
+
 
 
 // x, y := csvData.GetCSVData(filepath)
