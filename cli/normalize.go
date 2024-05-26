@@ -9,7 +9,8 @@ var normalizeCmd = &cobra.Command{
 	Short: "Will return normalized values as X file form", //decide
 	Args: cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-
+		//result := Normalize (function)
+		//ExportToFile(result, exportfilepath)
 	},
 }
 
