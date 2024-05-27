@@ -1,2 +1,4 @@
-## WIP CLI tool for quick data normalization 
+## CLI tool for quick data normalization 
+
+Currently a WIP
 
