@@ -6,12 +6,10 @@ import (
 )
 
 var temp_array = []float64{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
-//need all numbers/rows passed in to be float64
 
-
-//make all csv data float 64
 //itterate over each column in csv
 
+//Eventually replace this and make NM functions globaly accesible
 func Caller() {
 	minmax(temp_array)
 	standardise(temp_array)
