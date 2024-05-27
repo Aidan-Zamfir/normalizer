@@ -9,11 +9,14 @@ var normalizeCmd = &cobra.Command{
 	Short: "Will return normalized values as X file form", //decide
 	Args: cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		//result := Normalize (function)
+		//result := Normalize() (function)
+		//fmt.Println(result)
 		//ExportToFile(result, exportfilepath)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(normalizeCmd)
+	//need to add file path functionality
+	// normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "Export to file ->") 
 }
