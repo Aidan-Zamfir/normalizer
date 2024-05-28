@@ -5,15 +5,15 @@ import (
 	"math"
 )
 
-var temp_array = []float64{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
+// var temp_array = []float64{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
 
 //itterate over each column in csv
 
 //Eventually replace this and make NM functions globaly accesible
-func Caller() {
-	// minmax(temp_array)
-	// standardise(temp_array)
-}
+// func Caller() {
+// 	minmax(temp_array)
+// 	// standardise(temp_array)
+// }
 
 func minimum(arr []float64) float64 {
 	min := arr[0]
@@ -46,8 +46,7 @@ func mean(arr []float64) float64{
 	return mean 
 }
 
-func standardDeviation(arr []float64) (float64) { 
-	
+func standardDeviation(arr []float64) float64 { 
 	var standardDev float64 = 0
 	var powNums float64 = 0
 	var sum float64 = 0
@@ -67,10 +66,7 @@ func standardDeviation(arr []float64) (float64) {
 	return standardDev
 }
 
-
-
-
-func MinMax(arr []float64) { //currently return array
+func minmax(arr []float64) { 
 	min := minimum(arr)
 	max := maximum(arr)
 	n := []float64{} //stores minmax normalization data -> put in table
@@ -91,7 +87,7 @@ func MinMax(arr []float64) { //currently return array
 // the func will return float32
 
 
-func Standardise(arr []float64) { //currently return array
+func Standardise(arr []float64) []float64{ //currently return array
 	mean := mean(arr)
 	x := standardDeviation(arr)
 	n := []float64{}
@@ -102,6 +98,7 @@ func Standardise(arr []float64) { //currently return array
 	}
 	
 	fmt.Println(n, "<-- this is st data")
+	return n
 }
 
 

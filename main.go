@@ -1,13 +1,18 @@
 package main
 
 import (
-	"github.com/Aidan-Zamfir/normalizer/csvData"
+	"github.com/Aidan-Zamfir/normalizer/cli"
 )
 
 
 func main() {
-	// cli.Execute()
-	csvData.GetCSVData("testdata.csv")
+	cli.Execute()
+
+	// x, err := csvData.GetCSVData("testdata.csv")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// fmt.Printf("%+v\n", x)
 }
 	
 
