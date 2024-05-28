@@ -2,19 +2,24 @@ package csvData
 
 import (
 	"encoding/csv"
+	"fmt"
 	"io"
 	"log"
 	"os"
-
-	"github.com/tobgu/qframe"
 )
 
+// parse csv,
+// find len (number of columns)
+// itterate through itrms in column and append to slice?
 
+type userData struct {
+	columns int
+	data []float64
+}
 
-
-
-func GetCSVData(path string) (int, qframe.QFrame){ //temp return int (cause currently returning number of columns)
-	var columns int = 0
+func GetCSVData(path string) userData { //temp return int (cause currently returning number of columns)
+	// var columns int = 0
+	var c userData
 
 	f, err := os.Open(path) 
 	if err != nil {
@@ -22,8 +27,8 @@ func GetCSVData(path string) (int, qframe.QFrame){ //temp return int (cause curr
 	}
 
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
-	df := qframe.ReadCSV(f)
-	
+
+
 	for { 
 		col, err := reader.Read() 
 		if err == io.EOF { 
@@ -32,13 +37,10 @@ func GetCSVData(path string) (int, qframe.QFrame){ //temp return int (cause curr
 		if err != nil {
 			log.Fatal(err)
 		}
-		// p := &columns
-		// *p = len(col)
-		columns = len(col)
+
+		c.columns = len(col)
 	}
+	fmt.Println(c.columns)
 	
-	return columns, df
+	return userData{}
 }
-
-
-

@@ -1,10 +1,13 @@
 package main
 
-import "github.com/Aidan-Zamfir/normalizer/cli"
+import (
+	"github.com/Aidan-Zamfir/normalizer/csvData"
+)
 
 
 func main() {
-	cli.Execute()
+	// cli.Execute()
+	csvData.GetCSVData("testdata.csv")
 }
 	
 
