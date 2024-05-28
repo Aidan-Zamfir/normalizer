@@ -3,6 +3,6 @@
 Currently a WIP
 
 
--[ ] Easy UI
+- [ ] Easy UI
 - [ ] Correct datatypes in/out of math functions
-[] Convert data back into csv file
+- [ ] Convert data back into csv file
