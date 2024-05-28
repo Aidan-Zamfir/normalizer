@@ -8,36 +8,13 @@ import (
 func main() {
 	cli.Execute()
 
-	// x, err := csvData.GetCSVData("testdata.csv")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// fmt.Printf("%+v\n", x)
 }
-	
+// >>> go run . stand testdata.csv
 
-	// var filepath string
+// main -> cli/root.go -> execute()  				WORKS
+// execute() -> init() 								WORKS
+// init() -> normalizeCmd() | standardiseCmd() 		WORKS
+// -> csvData/parser.go -> getCSVData(FILEPATH)		WORKS
+// parrses csv file -> returns struct (d)			WORKS
+// -> data/equations -> standardise(d)				  /
 
-
-	// fmt.Print("Enter file path: ") //(testdata.csv)
-    // fmt.Scan(&filepath)
-
-	// f, err := os.Open(filepath)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// df := qframe.ReadCSV(f)
-
-	// fmt.Println(df)
-
-
-	// data.Caller(df) //input Data struct 
-	
-
-
-
-// x, y := csvData.GetCSVData(filepath)
-	// fmt.Println(x)
-	// fmt.Println(" ")
-	// fmt.Println(y)
