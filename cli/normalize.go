@@ -1,7 +1,6 @@
 package cli
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/Aidan-Zamfir/normalizer/csvData"
@@ -22,7 +21,7 @@ var normalizeCmd = &cobra.Command{
 		//Currently only passing in one slice of flt64 (1 column) -> not entire dataset
 		
 		result := data.MinMax(d.First)
-		fmt.Println(result, "<- data std")
+		log.Println(result, "<- data std")
 	},
 }
 

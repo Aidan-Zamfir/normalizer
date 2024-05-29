@@ -1,7 +1,6 @@
 package cli
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/Aidan-Zamfir/normalizer/csvData"
@@ -22,7 +21,7 @@ var standardiseCmd = &cobra.Command{
 		//Currently only passing in one slice of flt64 (1 column) -> not entire dataset
 
 		result := data.Standardise(d.First)
-		fmt.Println(result, "<- data std")
+		log.Println(result, "<- data std")
 		// ExportToFile(result, exportfilepath)
 	},
 }
