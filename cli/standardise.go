@@ -14,14 +14,15 @@ var standardiseCmd = &cobra.Command{
 	Short: "Will return standardised values as X file form", //decide
 	Args: cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(args[0])
 		d, err := csvData.GetCSVData(args[0])
 		if err != nil {
 				log.Fatal(err)
 			}
 
+		fmt.Println(" ")
+
 		result := data.Standardise(d.First)
-		fmt.Println(result)
+		fmt.Println(result, "<- data std")
 		// ExportToFile(result, exportfilepath)
 	},
 }

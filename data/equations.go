@@ -81,7 +81,6 @@ func Standardise(arr []float64) []float64{ //currently return array
         n = append(n, s)
 	}
 	
-	fmt.Println(n, "<-- this is st data")
 	return n
 }
 
