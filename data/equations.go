@@ -5,17 +5,8 @@ import (
 	"math"
 )
 
-// var temp_array = []float64{10, 32, 44, 12, 92, 40, 19, 32, 5, 9, 6, 20, 17}
 
-//itterate over each column in csv
-
-//Eventually replace this and make NM functions globaly accesible
-// func Caller() {
-// 	minmax(temp_array)
-// 	// standardise(temp_array)
-// }
-
-func minimum(arr []float64) float64 {
+func minimum(arr []float64) float64 { //return single value -> fl
 	min := arr[0]
 	for _, i := range arr {
 		if (i < min) {
@@ -25,7 +16,7 @@ func minimum(arr []float64) float64 {
 	return min
 }
 
-func maximum(arr []float64) float64 {
+func maximum(arr []float64) float64 { //return single value -> fl
 	max := arr[0]
 	for _, i := range arr {
 		if (i > max) {
@@ -66,10 +57,10 @@ func standardDeviation(arr []float64) float64 {
 	return standardDev
 }
 
-func minmax(arr []float64) { 
+func MinMax(arr []float64) { 
 	min := minimum(arr)
 	max := maximum(arr)
-	n := []float64{} //stores minmax normalization data -> put in table
+	n := []float64{} //stores minmax normalization data -> put in table (?)
 
 	for i := 0; i < len(arr); i++ { 
 		ni := (arr[i]-min)/(max-min)
@@ -78,13 +69,6 @@ func minmax(arr []float64) {
 
 	fmt.Println(n, "<-- this is mm data")
 }
-
-
-//normalize:
-//for i in row[x]:
-// normD = (i-min(row[x]) / (max(row[x]) - min(row[x]))
-// LIST.append(normD)
-// the func will return float32
 
 
 func Standardise(arr []float64) []float64{ //currently return array

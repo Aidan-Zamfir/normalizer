@@ -48,17 +48,17 @@ func GetCSVData(path string) (*UserData, error) {
 
 		second, err := strconv.ParseFloat(col[1], 64)
 		if err != nil{
-			return nil, err //write errors like this
+			return nil, err 
 		}
 
 		third, err := strconv.ParseFloat(col[2], 64)
 		if err != nil{
-			return nil, err //write errors like this
+			return nil, err 
 		}
 
 		fourth, err := strconv.ParseFloat(col[3], 64)
 		if err != nil{
-			return nil, err //write errors like this
+			return nil, err 
 		}
 
 		c.First = append(c.First, first)
