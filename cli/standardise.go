@@ -19,7 +19,7 @@ var standardiseCmd = &cobra.Command{
 				log.Fatal(err)
 			}
 
-		fmt.Println(" ")
+		//Currently only passing in one slice of flt64 (1 column) -> not entire dataset
 
 		result := data.Standardise(d.First)
 		fmt.Println(result, "<- data std")

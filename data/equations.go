@@ -1,7 +1,6 @@
 package data
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -57,7 +56,7 @@ func standardDeviation(arr []float64) float64 {
 	return standardDev
 }
 
-func MinMax(arr []float64) { 
+func MinMax(arr []float64) []float64 { 
 	min := minimum(arr)
 	max := maximum(arr)
 	n := []float64{} //stores minmax normalization data -> put in table (?)
@@ -67,7 +66,7 @@ func MinMax(arr []float64) {
         n = append(n, ni)
 	}
 
-	fmt.Println(n, "<-- this is mm data")
+	return n
 }
 
 
