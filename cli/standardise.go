@@ -9,19 +9,24 @@ import (
 )
 
 var standardiseCmd = &cobra.Command{
-	Use: "stand", 
+	Use:   "stand",
 	Short: "Will return standardised values as X file form", //decide
-	Args: cobra.MinimumNArgs(1),
+	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		d, err := csvData.GetCSVData(args[0])
 		if err != nil {
-				log.Fatal(err)
-			}
+			log.Fatal(err)
+		}
 
-		//Currently only passing in one slice of flt64 (1 column) -> not entire dataset
+		collist := [][]float64{d.First, d.Second, d.Third, d.Fourth}
 
-		result := data.Standardise(d.First)
-		log.Println(result, "<- data std")
+		for i := range collist {
+			result := data.Standardise(collist[i])
+			log.Println(result)
+			//add function that saves them somewhere else as CSV
+		}
+		//result := data.Standardise(d.First)
+		//log.Println(result, "<- data std")
 		// ExportToFile(result, exportfilepath)
 	},
 }
@@ -29,5 +34,5 @@ var standardiseCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(standardiseCmd)
 	//need to add file path functionality
-	// normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "Export to file ->") 
+	// normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "Export to file ->")
 }

@@ -18,10 +18,18 @@ var normalizeCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
+		//temp fix for testing:
+		collist := [][]float64{d.First, d.Second, d.Third, d.Fourth}
 		//Currently only passing in one slice of flt64 (1 column) -> not entire dataset
+		//call function within parser that iterates over columns and returns each for equation use
 
-		result := data.MinMax(d.First)
-		log.Println(result)
+		for i := range collist {
+			result := data.MinMax(collist[i])
+			log.Println(result)
+			//add function that saves them somewhere else as CSV
+		}
+		//result := data.MinMax(d.First)
+		//log.Println(result)
 	},
 }
 
