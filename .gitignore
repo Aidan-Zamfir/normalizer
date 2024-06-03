@@ -10,7 +10,12 @@
 
 *.out
 
+<<<<<<< HEAD
 .idea
+=======
+*.idea
+
+>>>>>>> 2410905790f72874d29f9d4f6581118004c41bc5
 go.work
 go.work.sum
 
