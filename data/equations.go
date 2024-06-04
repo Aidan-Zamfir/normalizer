@@ -4,6 +4,32 @@ import (
 	"math"
 )
 
+func MinMax(arr []float64) []float64 {
+	mn := minimum(arr)
+	mx := maximum(arr)
+	n := []float64{} //stores minmax normalization data -> put in table (?)
+
+	for i := 0; i < len(arr); i++ {
+		ni := (arr[i] - mn) / (mx - mn)
+		n = append(n, ni)
+	}
+
+	return n
+}
+
+func Standardise(arr []float64) []float64 { //currently return array
+	mean := mean(arr)
+	x := standardDeviation(arr)
+	n := []float64{}
+
+	for i := 0; i < len(arr); i++ {
+		s := (arr[i] - mean) / float64(x)
+		n = append(n, s)
+	}
+
+	return n
+}
+
 func minimum(arr []float64) float64 { //return single value -> fl
 	min := arr[0]
 	for _, i := range arr {
@@ -49,30 +75,4 @@ func standardDeviation(arr []float64) float64 { //works
 
 	standardDev = math.Sqrt(powNums / (sum - 1))
 	return standardDev
-}
-
-func MinMax(arr []float64) []float64 {
-	mn := minimum(arr)
-	mx := maximum(arr)
-	n := []float64{} //stores minmax normalization data -> put in table (?)
-
-	for i := 0; i < len(arr); i++ {
-		ni := (arr[i] - mn) / (mx - mn)
-		n = append(n, ni)
-	}
-
-	return n
-}
-
-func Standardise(arr []float64) []float64 { //currently return array
-	mean := mean(arr)
-	x := standardDeviation(arr)
-	n := []float64{}
-
-	for i := 0; i < len(arr); i++ {
-		s := (arr[i] - mean) / float64(x)
-		n = append(n, s)
-	}
-
-	return n
 }
