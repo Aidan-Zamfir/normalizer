@@ -1,6 +1,6 @@
 ## CLI tool for quick data normalization 
 
-Currently a WIP
+In Progress...
 
 ### TO DO:
 - [ ] Easy UI
