@@ -3,6 +3,7 @@ package csvData
 import (
 	//"encoding/csv"
 	"log"
+	"strconv"
 )
 
 //func ToCSV(arr [][]float64) error {
@@ -28,9 +29,14 @@ import (
 //	return err
 //}
 
+// WORKS:
 func ToSCV(arr [][]float64) {
 
 	for _, i := range arr {
-		log.Println(i)
+		for j := range i {
+			x := i[j]
+			s := strconv.FormatFloat(x, 'f', -1, 64)
+			log.Println(s)
+		}
 	}
 }
