@@ -21,26 +21,24 @@ var normalizeCmd = &cobra.Command{
 		cols := [][]float64{}
 
 		//temp fix for testing:
-		collist := [][]float64{d.First, d.Second, d.Third, d.Fourth}
-		//call function within parser that iterates over columns and returns each for equation use
+		//call function within parser that iterates over columns and returns each for equation used
+		collist := [][]float64{d.First, d.Second, d.Third, d.Fourth} //Do something different in the future
 
 		for i := range collist {
 			result := data.MinMax(collist[i])
 			cols = append(cols, result)
-			//log.Println(cols)
-			//add function that saves them somewhere else as CSV
 		}
 
-		err = csvData.ToCSV(cols)
+		err = csvData.ToCSV(cols, 0)
 		if err != nil {
 			log.Fatal(err)
 		}
-
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(normalizeCmd)
+
 	//need to add file path functionality
 	// normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "Export to file ->")
 }

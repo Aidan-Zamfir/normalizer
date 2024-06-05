@@ -18,21 +18,25 @@ var standardiseCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
+		//not idiomatic
+		cols := [][]float64{}
 		collist := [][]float64{d.First, d.Second, d.Third, d.Fourth}
 
 		for i := range collist {
 			result := data.Standardise(collist[i])
-			log.Println(result)
-			//add function that saves them somewhere else as CSV
+			cols = append(cols, result)
 		}
-		//result := data.Standardise(d.First)
-		//log.Println(result, "<- data std")
-		// ExportToFile(result, exportfilepath)
+
+		err = csvData.ToCSV(cols, 1)
+		if err != nil {
+			log.Fatal(err)
+		}
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(standardiseCmd)
+
 	//need to add file path functionality
 	// normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "Export to file ->")
 }
