@@ -31,7 +31,11 @@ var normalizeCmd = &cobra.Command{
 			//add function that saves them somewhere else as CSV
 		}
 
-		csvData.ToSCV(cols)
+		err = csvData.ToCSV(cols)
+		if err != nil {
+			log.Fatal(err)
+		}
+
 	},
 }
 
