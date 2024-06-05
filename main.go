@@ -17,12 +17,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 }
 
 func getD(path string) error {
-
-	//colData := [][]float64{} //holds array of arrays flt64
-	//var rowLen int = 100 //temp value 100, reset after loop starts
 
 	f, err := os.Open(path)
 	if err != nil {
@@ -31,20 +29,33 @@ func getD(path string) error {
 
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
 
-	//for i := 0; true; i++ { // need length
-	for {
-		var rowLen int = 100
+	//colData := [][]float64{} //holds array of arrays flt64
+	//var rowLen int = 100 //temp value 100, reset after loop starts
 
-		count := 0
-		x := 0 //first iter is over column 0
-		log.Println(x, "x start")
-		for i := range rowLen { // need length
-			log.Println(rowLen, "rowlen first")
+	//for i := 0; true; i++ { // need length
+
+	for {
+		var (
+			rowLen = 100 //temp value 100 -> is set to correct length of row AFTER FIRST loop
+			count  = 0   //increments with each loop cycle until > rowLen
+			x      = 0   //first iter is over column 0 (increments with each loop cycle)
+			y      int
+		)
+
+		for i := range rowLen {
+			log.Println("itteration: ", i)
 
 			row, err := reader.Read()
-			rowLen = len(row)
 
+			rowLen = len(row)
+			y = rowLen
+			log.Println(y, "y1")
+
+			//ISSUE HERE - READER NOT RE-LOADING AND RE-READING
 			if err == io.EOF {
+				log.Println(rowLen, "EOF")
+				log.Println("BREAK EOF")
+				log.Println(y, "y2")
 				break
 			}
 
@@ -64,15 +75,13 @@ func getD(path string) error {
 
 			//colData = append(colData, []float64{j})
 			//log.Println(colData)
-			log.Println(rowLen, "rowlen end of loop")
-			log.Println(x, "x end of loop")
 		}
 		x++ // x adds for items in columns until reach no more items
 		count++
-		log.Println(rowLen, "rowLen LAST")
-		log.Println(count, "count end")
-		log.Println(x, "x end")
-		if count > rowLen {
+		log.Println(rowLen, "rowLen END")
+		log.Println(count, "count END")
+		log.Println(x, "x END")
+		if count > y {
 			break
 		}
 	}
