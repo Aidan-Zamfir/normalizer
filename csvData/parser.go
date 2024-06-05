@@ -68,19 +68,3 @@ func GetCSVData(path string) (*UserData, error) {
 
 	return c, nil //write this when have errors as return
 }
-
-//func ItterData() []float64 {
-//	d := &UserData{}
-//	for i = 0; i < 4; i++ {
-//		if i == 1 {
-//			return d.First
-//		} else if i == 2 {
-//			return d.Second
-//		} else if i == 3 {
-//			return d.Third
-//		} else if i == 4 {
-//			return d.Fourth
-//		}
-//	}
-//	return
-//}
