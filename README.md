@@ -4,5 +4,5 @@ Currently a WIP
 
 ### TO DO:
 - [ ] Easy UI
-- [ ] Correct datatypes in/out of math functions
-- [ ] Convert data back into csv file
+- [x] Correct datatypes in/out of math functions
+- [x] Convert data back into csv file
