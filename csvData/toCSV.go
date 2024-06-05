@@ -2,7 +2,6 @@ package csvData
 
 import (
 	"encoding/csv"
-	"log"
 	"os"
 	"strconv"
 )
@@ -22,7 +21,7 @@ func ToCSV(arr [][]float64, t int) error {
 	csvfile, err := os.Create(filepath) //new csv file saved to local device
 
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	csvW := csv.NewWriter(csvfile) // writer object
@@ -42,7 +41,7 @@ func ToCSV(arr [][]float64, t int) error {
 	csvW.Flush()
 	err = csvfile.Close() //returns success (0) to err
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	return err
 }

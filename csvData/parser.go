@@ -8,7 +8,9 @@ import (
 	"strconv"
 )
 
-type UserData struct { // instead of user data-> make map
+//want something dynamic...
+
+type UserData struct {
 	First  []float64
 	Second []float64
 	Third  []float64
@@ -21,7 +23,7 @@ func GetCSVData(path string) (*UserData, error) {
 
 	f, err := os.Open(path)
 	if err != nil {
-		log.Fatal(err) //chnage err type
+		log.Fatal(err) //change err type
 	}
 
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
@@ -39,6 +41,7 @@ func GetCSVData(path string) (*UserData, error) {
 			continue
 		}
 
+		//CHNAGE FROM HERE
 		first, err := strconv.ParseFloat(col[0], 64)
 		if err != nil {
 			return nil, err //write errors like this
@@ -63,6 +66,8 @@ func GetCSVData(path string) (*UserData, error) {
 		c.Second = append(c.Second, second)
 		c.Third = append(c.Third, third)
 		c.Fourth = append(c.Fourth, fourth)
+
+		//TO HERE
 
 	}
 
