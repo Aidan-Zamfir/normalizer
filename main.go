@@ -35,6 +35,7 @@ func getD(path string) error {
 	//for i := 0; true; i++ { // need length
 
 	for {
+
 		var (
 			rowLen = 100 //temp value 100 -> is set to correct length of row AFTER FIRST loop
 			count  = 0   //increments with each loop cycle until > rowLen
@@ -48,14 +49,10 @@ func getD(path string) error {
 			row, err := reader.Read()
 
 			rowLen = len(row)
-			y = rowLen
-			log.Println(y, "y1")
 
-			//ISSUE HERE - READER NOT RE-LOADING AND RE-READING
+			//ISSUE HERE - READER NOT RE-LOADING AND RE-READING | OR LOOPING ISSUES
 			if err == io.EOF {
-				log.Println(rowLen, "EOF")
 				log.Println("BREAK EOF")
-				log.Println(y, "y2")
 				break
 			}
 
@@ -78,9 +75,7 @@ func getD(path string) error {
 		}
 		x++ // x adds for items in columns until reach no more items
 		count++
-		log.Println(rowLen, "rowLen END")
-		log.Println(count, "count END")
-		log.Println(x, "x END")
+
 		if count > y {
 			break
 		}
