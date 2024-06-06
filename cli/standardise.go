@@ -1,10 +1,10 @@
 package cli
 
 import (
+	"github.com/Aidan-Zamfir/normalizer/data"
 	"log"
 
 	"github.com/Aidan-Zamfir/normalizer/csvData"
-	"github.com/Aidan-Zamfir/normalizer/data"
 	"github.com/spf13/cobra"
 )
 
@@ -13,19 +13,19 @@ var standardiseCmd = &cobra.Command{
 	Short: "Will return standardised values as X file form", //decide
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		d, err := csvData.GetCSVData(args[0])
+		da, head, err := csvData.GetCSVData(args[0])
 		if err != nil {
 			log.Fatal(err)
 		}
 
 		cols := [][]float64{}
 
-		for i := range d {
-			result := data.Standardise(d[i])
+		for i := range da {
+			result := data.Standardise(da[i])
 			cols = append(cols, result)
 		}
 
-		err = csvData.ToCSV(cols, 1)
+		err = csvData.ToCSV(head, cols, 1)
 		if err != nil {
 			log.Fatal(err)
 		}

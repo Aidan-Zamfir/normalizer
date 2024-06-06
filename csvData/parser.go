@@ -8,7 +8,11 @@ import (
 	"strconv"
 )
 
-func GetCSVData(path string) (table [][]float64, err error) {
+type Titles struct {
+	headers []string
+}
+
+func GetCSVData(path string) (table [][]float64, headers [][]string, err error) {
 
 	f, err := os.Open(path)
 	if err != nil {
@@ -18,6 +22,7 @@ func GetCSVData(path string) (table [][]float64, err error) {
 
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
 	table = [][]float64{}
+	headers = [][]string{}
 
 	for i := 0; ; i++ {
 
@@ -26,19 +31,24 @@ func GetCSVData(path string) (table [][]float64, err error) {
 			if err == io.EOF {
 				break
 			}
-			return nil, err
+			return nil, nil, err
 		}
 		if i == 0 {
+			headers = make([][]string, len(row))
 			table = make([][]float64, len(row))
+			for j, row := range row {
+				headers[j] = append(headers[j], row)
+			}
 			continue
 		}
 		for j, row := range row {
 			cell, err := strconv.ParseFloat(row, 64)
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 			table[j] = append(table[j], cell)
 		}
 	}
-	return table, nil //write this when have errors as return
+	//log.Println(headers)
+	return table, headers, err //write this when have errors as return
 }

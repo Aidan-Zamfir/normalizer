@@ -9,7 +9,7 @@ import (
 // TO DO:
 // Re-insert column names (get from parser?)
 
-func ToCSV(arr [][]float64, t int) error {
+func ToCSV(head [][]string, arr [][]float64, t int) error {
 	var filepath string
 
 	if t == 0 {
@@ -25,8 +25,14 @@ func ToCSV(arr [][]float64, t int) error {
 	}
 
 	csvW := csv.NewWriter(csvFile) // writer object
+	newArr := []string{}           // temp storage for string
 
-	newArr := []string{} // temp storage for string
+	for _, i := range head {
+		for j := range i {
+			x := i[j]
+			newArr = append(newArr, x) //need to do newline
+		}
+	}
 
 	for _, i := range arr {
 		for j := range i {
