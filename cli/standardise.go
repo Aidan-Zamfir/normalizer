@@ -18,12 +18,10 @@ var standardiseCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-		//not idiomatic
 		cols := [][]float64{}
-		collist := [][]float64{d.First, d.Second, d.Third, d.Fourth}
 
-		for i := range collist {
-			result := data.Standardise(collist[i])
+		for i := range d {
+			result := data.Standardise(d[i])
 			cols = append(cols, result)
 		}
 

@@ -8,68 +8,37 @@ import (
 	"strconv"
 )
 
-//want something dynamic...
-
-type UserData struct {
-	First  []float64
-	Second []float64
-	Third  []float64
-	Fourth []float64
-}
-
-func GetCSVData(path string) (*UserData, error) {
-
-	c := &UserData{} //do like this usually
+func GetCSVData(path string) (table [][]float64, err error) {
 
 	f, err := os.Open(path)
 	if err != nil {
-		log.Fatal(err) //change err type
+		log.Fatal(err)
 	}
+	defer f.Close()
 
 	reader := csv.NewReader(f) //csv reader (pass in io reader)
+	table = [][]float64{}
 
-	for i := 0; true; i++ {
+	for i := 0; ; i++ {
 
-		col, err := reader.Read()
-		if err == io.EOF {
-			break
-		}
+		row, err := reader.Read()
 		if err != nil {
-			log.Fatal(err) //change
+			if err == io.EOF {
+				break
+			}
+			return nil, err
 		}
 		if i == 0 {
+			table = make([][]float64, len(row))
 			continue
 		}
-
-		//CHNAGE FROM HERE
-		first, err := strconv.ParseFloat(col[0], 64)
-		if err != nil {
-			return nil, err //write errors like this
+		for j, row := range row {
+			cell, err := strconv.ParseFloat(row, 64)
+			if err != nil {
+				return nil, err
+			}
+			table[j] = append(table[j], cell)
 		}
-
-		second, err := strconv.ParseFloat(col[1], 64)
-		if err != nil {
-			return nil, err
-		}
-
-		third, err := strconv.ParseFloat(col[2], 64)
-		if err != nil {
-			return nil, err
-		}
-
-		fourth, err := strconv.ParseFloat(col[3], 64)
-		if err != nil {
-			return nil, err
-		}
-
-		c.First = append(c.First, first)
-		c.Second = append(c.Second, second)
-		c.Third = append(c.Third, third)
-		c.Fourth = append(c.Fourth, fourth)
-
-		//TO HERE
-
 	}
-
-	return c, nil //write this when have errors as return
+	return table, nil //write this when have errors as return
 }

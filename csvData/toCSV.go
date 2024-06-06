@@ -18,13 +18,13 @@ func ToCSV(arr [][]float64, t int) error {
 		filepath = "dataST.csv"
 	}
 
-	csvfile, err := os.Create(filepath) //new csv file saved to local device
+	csvFile, err := os.Create(filepath) //new csv file saved to local device
 
 	if err != nil {
 		return err
 	}
 
-	csvW := csv.NewWriter(csvfile) // writer object
+	csvW := csv.NewWriter(csvFile) // writer object
 
 	newArr := []string{} // temp storage for string
 
@@ -39,7 +39,7 @@ func ToCSV(arr [][]float64, t int) error {
 	}
 
 	csvW.Flush()
-	err = csvfile.Close() //returns success (0) to err
+	err = csvFile.Close() //returns success (0) to err
 	if err != nil {
 		return err
 	}

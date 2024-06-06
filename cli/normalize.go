@@ -20,12 +20,8 @@ var normalizeCmd = &cobra.Command{
 
 		cols := [][]float64{}
 
-		//temp fix for testing:
-		//call function within parser that iterates over columns and returns each for equation used
-		collist := [][]float64{d.First, d.Second, d.Third, d.Fourth} //Do something different in the future
-
-		for i := range collist {
-			result := data.MinMax(collist[i])
+		for i := range d {
+			result := data.MinMax(d[i])
 			cols = append(cols, result)
 		}
 
