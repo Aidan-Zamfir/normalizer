@@ -6,6 +6,6 @@ In Progress...
 - [x] Correct datatypes in/out of math functions
 - [x] Convert data back into csv file
 - [x] Make tool dynamic
-- [ ] Re-insert column names
+- [x] Re-insert column names
 - [ ] Easy UI
 - [ ] CLI Specify save file path 

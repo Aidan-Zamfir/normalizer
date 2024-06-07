@@ -31,8 +31,11 @@ func ToCSV(head [][]string, arr [][]float64, t int) error {
 		for j := range i {
 			x := i[j]
 			newArr = append(newArr, x) //need to do newline
+
 		}
 	}
+	_ = csvW.Write(newArr)
+	newArr = nil
 
 	for _, i := range arr {
 		for j := range i {
