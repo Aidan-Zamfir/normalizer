@@ -1,4 +1,11 @@
-## CLI tool for quick data normalization 
+## CLI tool for quick data normalization
+
+*Currently WIP*
+
+This simple CLI tool allows you to quickly normalize and/or standardise csv data for ML applications and save it to your device.
+
+### Use:
+
 
 In Progress...
 
@@ -9,3 +16,5 @@ In Progress...
 - [x] Re-insert column names
 - [ ] Easy UI
 - [ ] CLI Specify save file path 
+- [ ] MAKEFILE
+

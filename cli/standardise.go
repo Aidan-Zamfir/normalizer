@@ -10,7 +10,7 @@ import (
 
 var standardiseCmd = &cobra.Command{
 	Use:   "stand",
-	Short: "Will return standardised values as X file form", //decide
+	Short: "Will return standardised values as .csv file", //decide
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		da, head, err := csvData.GetCSVData(args[0])
@@ -29,12 +29,13 @@ var standardiseCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		//res := "dataST.csv"
+		//ExportToFile(res, exportFilePath)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(standardiseCmd)
-
-	//need to add file path functionality
-	// normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "Export to file ->")
+	//standardiseCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path)")
 }

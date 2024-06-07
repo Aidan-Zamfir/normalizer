@@ -10,9 +10,10 @@ import (
 
 var normalizeCmd = &cobra.Command{
 	Use:   "nm",
-	Short: "Will return normalized values as X file form", //decide
+	Short: "Will return normalized values as .csv file", //decide
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
+
 		da, head, err := csvData.GetCSVData(args[0])
 		if err != nil {
 			log.Fatal(err)
@@ -29,12 +30,13 @@ var normalizeCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		//res := "dataNM.csv"
+		//ExportToFile(res, exportFilePath)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(normalizeCmd)
-
-	//need to add file path functionality
-	// normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "Export to file ->")
+	//normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path)")
 }
