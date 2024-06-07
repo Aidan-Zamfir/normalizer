@@ -17,4 +17,6 @@ In Progress...
 - [ ] Easy UI
 - [ ] CLI Specify save file path 
 - [ ] MAKEFILE
+- [ ] Distribution 
+
 
