@@ -28,6 +28,7 @@ var normalizeCmd = &cobra.Command{
 			cols = append(cols, result)
 		}
 
+		//data from flag needs to go into this function too
 		err = csvData.ToCSV(head, cols, 0)
 		if err != nil {
 			log.Fatal(err)
