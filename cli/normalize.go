@@ -30,13 +30,16 @@ var normalizeCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
+		var exportFilePath string
 
-		//res := "dataNM.csv"
-		//ExportToFile(res, exportFilePath)
+		res := "dataNM.csv"               // need to pass in file, not name
+		ExportToFile(res, exportFilePath) // need to pass in file, not name
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(normalizeCmd)
-	//normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path)")
+	var exportFilePath string
+
+	normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path)")
 }
