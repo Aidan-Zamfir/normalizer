@@ -37,5 +37,5 @@ var standardiseCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(standardiseCmd)
-	//standardiseCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path)")
+	//standardiseCmd.PersistentFlags().String("filepath", "export", "Export to filepath -> (provide path)")
 }
