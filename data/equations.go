@@ -2,22 +2,25 @@ package data
 
 import (
 	"math"
+	"time"
 )
 
-func MinMax(arr []float64) []float64 {
+func MinMax(arr []float64, c chan []float64) {
 	mn := minimum(arr)
 	mx := maximum(arr)
-	n := []float64{} //stores minmax normalization data -> put in table (?)
+	n := []float64{}
 
 	for i := 0; i < len(arr); i++ {
 		ni := (arr[i] - mn) / (mx - mn)
 		n = append(n, ni)
 	}
 
-	return n
+	c <- n
+	time.Sleep(time.Millisecond * 10)
+	close(c)
 }
 
-func Standardise(arr []float64) []float64 { //currently return array
+func Standardise(arr []float64, c chan []float64) {
 	mean := mean(arr)
 	x := standardDeviation(arr)
 	n := []float64{}
@@ -27,10 +30,12 @@ func Standardise(arr []float64) []float64 { //currently return array
 		n = append(n, s)
 	}
 
-	return n
+	c <- n
+	time.Sleep(time.Millisecond * 10)
+	close(c)
 }
 
-func minimum(arr []float64) float64 { //return single value -> fl
+func minimum(arr []float64) float64 { //return single value -> fl64
 	min := arr[0]
 	for _, i := range arr {
 		if i < min {
@@ -40,14 +45,14 @@ func minimum(arr []float64) float64 { //return single value -> fl
 	return min
 }
 
-func maximum(arr []float64) float64 { //return single value -> fl
-	max := arr[0]
+func maximum(arr []float64) float64 { //return single value -> fl64
+	mmax := arr[0]
 	for _, i := range arr {
-		if i > max {
-			max = i
+		if i > mmax {
+			mmax = i
 		}
 	}
-	return max
+	return mmax
 }
 
 func mean(arr []float64) float64 {
@@ -56,7 +61,7 @@ func mean(arr []float64) float64 {
 		t += i
 	}
 
-	var mean float64 = t / float64((len(arr)))
+	var mean = t / float64((len(arr)))
 
 	return mean
 }
@@ -64,7 +69,7 @@ func mean(arr []float64) float64 {
 func standardDeviation(arr []float64) float64 { //works
 	var standardDev float64 = 0
 	var powNums float64 = 0
-	var sum float64 = float64(len(arr))
+	var sum = float64(len(arr))
 
 	xm := float64(mean(arr))
 

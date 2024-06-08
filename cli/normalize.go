@@ -1,11 +1,10 @@
 package cli
 
 import (
-	"github.com/Aidan-Zamfir/normalizer/data"
-	"log"
-
 	"github.com/Aidan-Zamfir/normalizer/csvData"
+	"github.com/Aidan-Zamfir/normalizer/data"
 	"github.com/spf13/cobra"
+	"log"
 )
 
 var normalizeCmd = &cobra.Command{
@@ -13,6 +12,7 @@ var normalizeCmd = &cobra.Command{
 	Short: "Will return normalized values as .csv file", //decide
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
+		c := make(chan []float64)
 
 		da, head, err := csvData.GetCSVData(args[0])
 		if err != nil {
@@ -22,7 +22,9 @@ var normalizeCmd = &cobra.Command{
 		cols := [][]float64{}
 
 		for i := range da {
-			result := data.MinMax(da[i])
+			go data.MinMax(da[i], c)
+			result := <-c
+			//result := data.MinMax(da[i])
 			cols = append(cols, result)
 		}
 
