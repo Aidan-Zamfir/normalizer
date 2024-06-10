@@ -28,32 +28,25 @@ var normalizeCmd = &cobra.Command{
 			cols = append(cols, result)
 		}
 
-		//var exportFilePath string
-		//log.Println(exportFilePath, "path")
-		//if exportFilePath == " " {
-		//	log.Println("was nil")
-		//	err = csvData.ToCSV(head, cols, "./DataNM.csv")
-		//	if err != nil {
-		//		log.Fatal(err)
-		//	}
-		//}
-		//log.Println("Not empty???")
-		//err = csvData.ToCSV(head, cols, exportFilePath)
-		//if err != nil {
-		//	log.Fatal(err)
-		//}
-
-		err = csvData.ToCSV(head, cols, "./DataNM.csv")
-		if err != nil {
-			log.Fatal(err)
+		if exportFilePath != "" {
+			err = csvData.ToCSV(head, cols, exportFilePath)
+			if err != nil {
+				log.Fatal(err)
+			}
+		} else {
+			err = csvData.ToCSV(head, cols, "./DataNM.csv")
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 
 	},
 }
 
 func init() {
-	var exportFilePath string
 
 	rootCmd.AddCommand(normalizeCmd)
 	normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path) | if empty -> ./DataNM.csv")
 }
+
+// go run . nm testdata.csv -e ../../Desktop/test.csv

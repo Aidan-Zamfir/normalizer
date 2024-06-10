@@ -7,6 +7,8 @@ import (
 	"log"
 )
 
+var exportFilePath string
+
 var standardiseCmd = &cobra.Command{
 	Use:   "stand",
 	Short: "Will return standardised values as .csv file", //decide
@@ -26,18 +28,23 @@ var standardiseCmd = &cobra.Command{
 			result := <-c
 			cols = append(cols, result)
 		}
-
-		err = csvData.ToCSV(head, cols, "./DataST.csv")
-		if err != nil {
-			log.Fatal(err)
+		if exportFilePath != "" {
+			err = csvData.ToCSV(head, cols, exportFilePath)
+			if err != nil {
+				log.Fatal(err)
+			}
+		} else {
+			err = csvData.ToCSV(head, cols, "./DataST.csv")
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
-
 	},
 }
 
 func init() {
-	var exportFilePath string
-
 	rootCmd.AddCommand(standardiseCmd)
 	standardiseCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path) | if empty -> ./DataST.csv")
 }
+
+// go run . stand testdata.csv -e ../../Desktop/test.csv
