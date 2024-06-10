@@ -24,7 +24,6 @@ var normalizeCmd = &cobra.Command{
 		for i := range da {
 			go data.MinMax(da[i], c)
 			result := <-c
-			//result := data.MinMax(da[i])
 			cols = append(cols, result)
 		}
 
