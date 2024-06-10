@@ -22,22 +22,22 @@ var standardiseCmd = &cobra.Command{
 		cols := [][]float64{}
 
 		for i := range da {
-			go data.MinMax(da[i], c)
+			go data.Standardise(da[i], c)
 			result := <-c
 			cols = append(cols, result)
 		}
 
-		err = csvData.ToCSV(head, cols, 1)
+		err = csvData.ToCSV(head, cols, "./DataST.csv")
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		//res := "dataST.csv"
-		//ExportToFile(res, exportFilePath)
 	},
 }
 
 func init() {
+	var exportFilePath string
+
 	rootCmd.AddCommand(standardiseCmd)
-	//standardiseCmd.PersistentFlags().String("filepath", "export", "Export to filepath -> (provide path)")
+	standardiseCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path) | if empty -> ./DataST.csv")
 }
