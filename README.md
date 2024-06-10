@@ -2,7 +2,7 @@
 
 *Currently WIP*
 
-This simple CLI tool allows you to quickly normalize and/or standardise csv data for ML applications and save it to your device.
+This simple CLI tool allows you to quickly normalize or standardise csv data for ML applications and save it to your device.
 
 ### Use:
 
