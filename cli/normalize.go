@@ -48,5 +48,3 @@ func init() {
 	rootCmd.AddCommand(normalizeCmd)
 	normalizeCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path) | if empty -> ./DataNM.csv")
 }
-
-// go run . nm testdata.csv -e ../../Desktop/test.csv

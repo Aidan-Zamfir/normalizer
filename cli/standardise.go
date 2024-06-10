@@ -46,5 +46,3 @@ func init() {
 	rootCmd.AddCommand(standardiseCmd)
 	standardiseCmd.Flags().StringVarP(&exportFilePath, "export", "e", "", "Export to filepath -> (provide path) | if empty -> ./DataST.csv")
 }
-
-// go run . stand testdata.csv -e ../../Desktop/test.csv
