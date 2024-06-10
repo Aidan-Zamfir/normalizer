@@ -14,10 +14,11 @@ In Progress...
 - [x] Convert data back into csv file
 - [x] Make tool dynamic
 - [x] Re-insert column names
-- [ ] Easy UI
-- [ ] CLI Specify save file path 
+- [x] Easy UI
+- [x] CLI Specify save file path 
 - [ ] MAKEFILE
 - [ ] Distribution 
 - [x] go routines
+- [ ] Tests (?)
 
 

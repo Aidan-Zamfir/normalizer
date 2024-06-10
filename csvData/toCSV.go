@@ -8,7 +8,7 @@ import (
 
 func ToCSV(head [][]string, arr [][]float64, filepath string) error {
 
-	csvFile, err := os.OpenFile(filepath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644) //new csv file saved to local device
+	csvFile, err := os.OpenFile(filepath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		return err
 	}
