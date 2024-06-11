@@ -24,3 +24,7 @@ norm stand data.csv -e ../../Desktop/data.csv
 norm nm data.csv -e ../../Desktop/data.csv
 ```
 
+
+
+## Future Features
+- [ ] Filter & remove string entries 
