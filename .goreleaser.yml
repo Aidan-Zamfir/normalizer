@@ -12,6 +12,7 @@ builds:
       - -mod=vendor
 
 release:
+  version: 2
   prereleases: auto
 
 universal_binaries:
@@ -20,7 +21,7 @@ universal_binaries:
 checksum:
   name_template: 'checksums.txt'
 
-version: 2
+
 
 
 
