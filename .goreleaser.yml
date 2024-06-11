@@ -12,7 +12,7 @@ builds:
       - -mod=vendor
 
 release:
-  prereleases: auto
+  prerelease: auto
 
 universal_binaries:
   - replace: true
