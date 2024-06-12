@@ -22,7 +22,6 @@ func TestMinMax(t *testing.T) {
 }
 
 func TestStandardise(t *testing.T) {
-
 }
 
 func TestEquations(t *testing.T) {
